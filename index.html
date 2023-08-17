@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <title>Weather Website</title>
+</head>
+<body>
+   <div class="main-wrapper">
+      <div class="loading-overlay">
+         <div class="loading-overlay__spinner"></div>
+      </div>
+      <div class="bg-img-wrapper">
+         <img src="/img/background-images/default.jpg" alt="thunder background" height="2452" width="3924" class="bg-photo">
+      </div> 
+      <header class="header">
+         <section class="header__info">
+            <div class="header__info__city">
+               <div class="header__info__city__img-wrapper">
+                  <img src="/img/placeholder.svg" alt="placeholder" height="22" width="22"> 
+               </div>
+               <h2 class="header__info__city__name">New York</h2>
+            </div>   
+            <h1 class="header__info__weather-description">Thunder</h1>
+            <div class="header__info__img-wrapper">
+               <img src="/img/weather-icon-images/default.svg" alt="default icon" width="183" height="174" class="big-icon-photo-mobile">
+            </div>
+            <h3 class="header__info__temperature">16°C</h3>
+            <div class="header__info__day">
+               <h4 class="header__info__day__week-day">Sunday</h4>
+               <div class="header__info__day__lane"></div>
+               <h4 class="header__info__day__date">12 Dec 2023</h4>
+               <div class="header__info__day__lane"></div>
+               <h4 class="header__info__day__time">9:00</h4>
+            </div>
+         </section>
+         <section class="header__big-icon">
+            <div class="header__big-icon__img-wrapper">
+               <img src="/img/weather-icon-images/default.svg" height="174" width="183" alt="default icon" class="big-icon-photo-desktop">
+            </div>
+         </section>
+      </header>
+      <main class="main">
+         <section class="main__options">
+            <div class="main__options__weather">
+               <div class="options-img-wrapper">
+                  <img src="/img/weather-icon.svg" height="34" width="34" alt="weather icon">
+               </div>
+               <h5 class="options-header">
+                  weather
+               </h5>
+            </div>
+            <div class="main__options__settings">
+               <div class="options-img-wrapper">
+                  <img src="/img/settings-icon.svg" height="34" width="34" alt="settings icon">
+               </div>
+               <h5 class="options-header">
+                  options
+               </h5>
+            </div>
+            <div class="main__options__cities">
+               <div class="options-img-wrapper">
+                  <img src="/img/placeholder.svg" height="34" width="34" alt="placeholder icon">
+               </div>
+               <h5 class="options-header">
+                  cities
+               </h5>
+            </div>
+            <div class="main__options__arrow">
+               <div class="options-img-wrapper mobile-menu-btn">
+                  <img src="/img/back-arrow.png" height="34" width="34" alt="back arrow">
+               </div>
+            </div>
+         </section>
+         <section class="main__daily-forecast">
+            <div class="main__daily-forecast__header">
+               <div class="main__daily-forecast__header__img-wrapper">
+                  <img src="/img/clock-icon.svg" height="15" width="15" alt="clock">
+               </div>
+               <h5 class="main__daily-forecast__header__text">24-hours forecast</h5>
+            </div>
+            <div class="main__daily-forecast__graph">
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+               <div class="main__daily-forecast__graph__element">
+                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <div class="main__daily-forecast__graph__element__icon">
+                     <div class="main__daily-forecast__graph__element__icon__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default">
+                     </div>
+                     <p class="main__daily-forecast__graph__element__icon__wind">11.7km/h</p>
+                     <p class="main__daily-forecast__graph__element__icon__time">Now</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="main__weekly-and-air">
+            <div class="main__weekly-and-air__weekly">
+               <div class="main__weekly-and-air__weekly__days">
+                  <div class="main__weekly-and-air__weekly__days__left-arrow">&lt;</div>
+                  <div class="main__weekly-and-air__weekly__days__choosen-day">
+                     <h6 class="main__weekly-and-air__weekly__days__choosen-day__week-day-name">SUN</h6>
+                     <div class="main__weekly-and-air__weekly__days__choosen-day__img-wrapper">
+                        <img src="/img/weather-icon-images/default.svg" height="21" width="21" alt="default">
+                     </div>
+                  </div>
+                  <div class="main__weekly-and-air__weekly__days__right-arrow">&gt;</div>
+               </div>
+               <div class="main__weekly-and-air__weekly__time">
+                  <div class="main__weekly-and-air__weekly__time__img-wrapper">
+                     <img src="/img/clock-icon.svg" alt="clock icon" height="15" width="15">
+                  </div>
+                  <h5 class="main__weekly-and-air__weekly__time__text">8:00</h5>
+               </div>
+            </div>
+            <div class="main__weekly-and-air__air">
+               <h5 class="main__weekly-and-air__air__title">AIR CONDITIONS</h5>
+               <div class="main__weekly-and-air__air__element">
+                  <div class="main__weekly-and-air__air__element__img-wrapper">
+                     <img src="/img/temperature-icon.svg" alt="temperature icon" height="18" width="18"/>
+                  </div>
+                  <div class="main__weekly-and-air__air__element__info">
+                     <h6 class="main__weekly-and-air__air__element__info__name">Real Feel</h6>
+                     <p class="main__weekly-and-air__air__element__info__value real-feel-value">30°C</p>
+                  </div>
+               </div>
+               <div class="main__weekly-and-air__air__element">
+                  <div class="main__weekly-and-air__air__element__img-wrapper">
+                     <img src="/img/wind-icon.svg" alt="wind icon" height="18" width="18" >
+                  </div>
+                  <div class="main__weekly-and-air__air__element__info">
+                     <h6 class="main__weekly-and-air__air__element__info__name">Wind</h6>
+                     <p class="main__weekly-and-air__air__element__info__value wind-speed-value">0.8 km/h</p>
+                  </div>
+               </div>
+               <div class="main__weekly-and-air__air__element">
+                  <div class="main__weekly-and-air__air__element__img-wrapper">
+                     <img src="/img/humidity-icon.svg" alt="humidity icon" height="18" width="18" >
+                  </div>
+                  <div class="main__weekly-and-air__air__element__info">
+                     <h6 class="main__weekly-and-air__air__element__info__name">Humidity</h6>
+                     <p class="main__weekly-and-air__air__element__info__value humidity-value">2%</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+   </div>
+   <script src="/js/loading-overlay.js" defer></script>
+   <script src="/js/mobile-menu.js" defer></script>
+   <script src="/js/weather.js" defer></script>
+</body>
+</html>

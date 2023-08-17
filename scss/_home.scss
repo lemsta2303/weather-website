@@ -1,0 +1,424 @@
+.main-wrapper{
+   font-family: 'Inter', sans-serif;
+   position:relative;
+   min-height:100vh;
+   width:100vw;
+   overflow: hidden;
+   font-size:62.5%;
+   display:flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.loading-overlay{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: gray;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 9999;
+   &__spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 2s linear infinite;
+   }
+   @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+   }
+
+}
+.loading-overlay-nodisplay{
+   display:none;
+}
+
+
+
+.bg-img-wrapper{
+   height:100%;
+   width:100%;
+   position:absolute;
+   left:0;
+   top:0;
+   z-index:-1;
+   img{
+      height:100%;
+      width:100%;
+      object-fit: cover;
+   }
+}
+
+.header{
+   padding-top:5vh;
+   padding-left:5vw;
+   padding-right:5vw;
+   display:flex;
+   justify-content: space-between;
+   @include breakpoint(tablet){
+      justify-content: center;
+      padding-top:2vh;
+   }
+   &__info{
+      
+      display:flex;
+      flex-direction: column;
+      color: white;
+      @include breakpoint(tablet){
+         align-items: center;
+         width:100%;
+      }
+      &__city{
+         display:flex;
+         align-items:center;
+         font-size:2.2em;
+         margin-bottom:4vh;
+         @include breakpoint(tablet){
+            margin-bottom:2vh;
+            width:100%;
+            align-self:flex-start;
+            
+         }
+      }
+      &__weather-description{
+         font-size:3.6em;
+         margin-bottom:12vh;
+         @include breakpoint(tablet){
+            margin-bottom:2vh;
+         }
+      }
+      &__img-wrapper{
+         display:none;
+         @include breakpoint(tablet){
+            display:initial;
+         }   
+      }
+      
+      &__temperature{
+         font-size:5em;
+         margin-bottom:1vh;
+      }
+      &__day{
+         display:flex;
+         align-items: center;
+         font-size:1.8em;
+         &__lane{
+            width:1px;
+            height:15px;
+            background:white;
+            margin-left:1rem;
+            margin-right:1rem;
+         }
+      }
+   }
+   &__big-icon{
+      &__img-wrapper{
+         height:20rem;
+         width:100%;
+         img{
+            width:100%;
+            height:100%;
+            object-fit: contain;
+         }
+      }
+      @include breakpoint(tablet){
+         display:none;
+      }
+   }
+}
+
+.main {
+   padding-left:5vw;
+   padding-right:5vw;
+   padding-bottom:5vh;
+   display:flex;
+   justify-content: space-between;
+   @include breakpoint(tablet){
+      flex-direction: column-reverse;
+      padding-left:0;
+      padding-right:0;
+      padding-bottom:0;
+   }
+   &__options{
+      flex: 0 0 5%;
+      border-radius:2rem;
+      padding:2vh 2vw;
+      background:$c_gray; 
+      gap:4vh;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: space-between;
+      transition: transform 0.4s linear;
+      @include breakpoint(tablet){
+         border-top-left-radius: 0;
+         border-top-right-radius: 0;
+         position:absolute;
+         top:0;
+         right:0;
+         background: $c_gray-full;
+         transform: translateY(-80%);
+      }
+      &__weather,
+      &__settings,
+      &__cities,
+      &__arrow{
+         display:flex;
+         flex-direction: column;
+         align-items: center;
+         .options-img-wrapper{
+            height:4rem;
+            width:4rem;
+            img{
+               height:100%;
+               width:100%;
+               transition: all .4s ease;
+               &:hover{
+                  opacity:0.6;
+                  cursor:pointer;
+               }  
+            }
+         }
+         .options-header{
+            color: white;
+         }
+      }
+      &__arrow{
+         display:none;
+         .options-img-wrapper{        
+            transition: transform 0.5s linear;
+            transform: rotate(-90deg);   
+         }
+         .active-menu-btn{
+            transform: rotate(90deg);
+         }
+         @include breakpoint(tablet){
+            display:initial;
+         }
+      }
+   }
+   .active-menu{
+      transform: translateY(0);
+   }
+   &__daily-forecast{
+      flex: 0 0 65%;
+      background: $c_gray;
+      border-radius:2rem;      
+      display:flex;
+      flex-direction: column;
+      gap:25%;
+      color:white;
+      justify-self:flex-end;
+      @include breakpoint(tablet){
+         flex: initial;
+         border-radius:1rem;
+         margin-left:.5rem;
+         margin-right:.5rem;
+         gap:0;            
+         height:100%;
+         margin-bottom:.5rem;
+         height:12rem;
+         justify-content: flex-start;
+         gap:3rem;
+      
+      }
+      &__header{
+         padding-top:4rem;
+         padding-left:4rem;
+         padding-right:4rem;
+         display:flex;
+         align-items:center;
+         gap:.4rem;
+         @include breakpoint(tablet){
+            padding-top:.3rem;
+            padding-left:.3rem;
+         }
+         &__img-wrapper{
+            width:1.5rem;
+            height:1.5rem;
+            img{
+               height:100%;
+               width:100%;
+            }
+         }
+         &__text{
+            font-size:2em;
+            @include breakpoint(tablet){
+               font-size:1.8em;
+            }
+         }
+      }
+      &__graph{
+         padding-left:4rem;
+         padding-right:4rem;
+         display:flex;
+         justify-content: space-between;
+         align-items:center;
+         @include breakpoint(tablet){
+            padding:0 3rem;  
+         }
+         @include breakpoint(phablet){
+            padding: 0 1rem;
+         }
+         &__element{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap:1rem;
+            &__icon{
+               display:flex;
+               flex-direction: column;
+               align-items: center;
+            }
+            @include breakpoint(tablet){
+               &:nth-child(2n-1){
+                  display:none;
+               }
+            }
+         }
+         
+       
+      }
+   }
+   &__weekly-and-air{
+      flex: 0 0 20%;
+      background: $c_gray;
+      border-radius:2rem;
+      display:flex;
+      flex-direction:column;
+      @include breakpoint(tablet){
+         flex: initial;
+         flex-direction: column-reverse;
+         background: none;
+         width:100%;
+      }
+      &__weekly{
+         padding: 1.5rem 5% 0;
+         width:90%;
+         display:flex;
+         flex-direction: column;
+         align-items: center;
+         @include breakpoint(tablet){
+            padding: 1rem 0;
+            width:100%;
+         }
+         &__days{
+            width:100%;
+            display:flex;
+            align-items:center;
+            color:white;
+            justify-content: center;
+            gap:15%;
+            &__left-arrow,
+            &__right-arrow{
+               font-size:2.6em;
+            }
+            &__choosen-day{
+               display:flex;
+               flex-direction: column;
+               align-items: center;
+               gap:.3rem;
+               &__week-day-name{
+                  font-size:1.8em;
+               }
+               &__img-wrapper{
+                  width:2.5rem;
+                  height:2.5rem;
+                  img{
+                     width:100%;
+                     height:100%;
+                  }
+               }
+            }
+         }
+         &__time{
+            width:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            margin-top:.5rem;
+            &__img-wrapper{
+               height:1rem;
+               width:1rem;
+            }
+            &__text{
+               font-size:1.8em;
+               color: white;
+            }
+            
+         }
+      }
+      &__air{
+         padding-top:1.5rem;
+         padding-left:5%;
+         padding-right:5%;
+         padding-bottom:1.5rem;
+         display:flex;
+         flex-direction: column;
+         gap:1.5rem;
+         @include breakpoint(tablet){
+            flex-direction:row;
+            justify-content: space-evenly;
+            margin-top:1rem;
+            padding-top:.5rem;
+            padding-bottom:.5rem;
+            padding-left:0;
+            padding-right:0;
+            background:$c_gray;
+            width: calc( 100% - 1rem );
+            margin-left:.5rem;
+            margin-right:.5rem;
+            border-radius:1rem;
+         }
+
+         &__title{
+            font-size:1.4em;
+            color:white;
+            font-weight:500;
+            @include breakpoint(tablet){
+               display:none;
+            }
+         }
+         &__element{
+            display:flex;
+            align-items:center;
+            gap:1rem;
+            @include breakpoint(tablet){
+               flex-direction: column;
+               justify-content: center;
+               gap:.3rem;
+               
+            }
+            &__img-wrapper{
+               height:1.5rem;
+               width:1.5rem;
+               img{
+                  height:100%;
+                  width:100%;
+               }
+            }
+            &__info{
+               color: white;
+               gap:.3rem;
+               &__name{
+                  font-size:1.4em;
+                  text-align:center;
+               }
+               &__value{
+                  font-size:1.4em;
+                  font-weight:bold;
+                  text-align:center;
+               }
+            }
+
+         }
+      }
+   }
+}

@@ -1,5 +1,5 @@
 const apiKey = '98b3e8ec96b066ca74e2cdfdcad1a2fe';
-let city = 'Gliwice';
+let city = 'Los Angeles';
 const apiUrl = (city_local, api_key) => 'https://api.openweathermap.org/data/2.5/forecast?q=' + city_local + '&units=metric&appid=' + api_key;
 let temperatureUnit = 'C';
 let windSpeedUnit = 'km/h';
@@ -27,6 +27,7 @@ function useApiData(data, index, temperatureUnit, windUnit){
       setTimeout(() => {
         loadingOverlay.classList.add('loading-overlay-nodisplay');
       }, 100); 
+      drawCanvasGraph();
     })
     .catch(error => {
       console.error('An error occurred:', error);

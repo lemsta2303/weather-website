@@ -104,7 +104,7 @@
             margin-bottom:2vh;
          }
          @include breakpoint(mobileonly){
-            font-size:3em;
+            font-size:2.4em;
          }
       }
       &__img-wrapper{
@@ -170,6 +170,8 @@
       align-items:center;
       justify-content: space-between;
       transition: transform 0.4s linear;
+      position:relative;
+      
       @include breakpoint(tablet){
          border-top-left-radius: 0;
          border-top-right-radius: 0;
@@ -229,6 +231,19 @@
       gap:25%;
       color:white;
       justify-self:flex-end;
+      position:relative;
+      .my-canvas{
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: calc(100% - 4rem);
+         height: calc(100% - 10rem);
+         padding-left:2rem;
+         padding-right:2rem;
+         padding-top:8rem;
+         padding-bottom:2rem;
+         
+      }
       @include breakpoint(tablet){
          flex: initial;
          border-radius:1rem;
@@ -274,6 +289,7 @@
          display:flex;
          justify-content: space-between;
          align-items:center;
+         z-index:100;
          @include breakpoint(tablet){
             padding:0 3rem;  
          }

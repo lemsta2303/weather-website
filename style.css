@@ -249,7 +249,7 @@ table {
 }
 @media (max-width: 420px) {
   .header__info__weather-description {
-    font-size: 3em;
+    font-size: 2.4em;
   }
 }
 .header__info__img-wrapper {
@@ -317,6 +317,7 @@ table {
   align-items: center;
   justify-content: space-between;
   transition: transform 0.4s linear;
+  position: relative;
 }
 @media (max-width: 960px) {
   .main__options {
@@ -377,6 +378,18 @@ table {
   gap: 25%;
   color: white;
   justify-self: flex-end;
+  position: relative;
+}
+.main__daily-forecast .my-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% - 4rem);
+  height: calc(100% - 10rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
 }
 @media (max-width: 960px) {
   .main__daily-forecast {
@@ -428,6 +441,7 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
 @media (max-width: 960px) {
   .main__daily-forecast__graph {

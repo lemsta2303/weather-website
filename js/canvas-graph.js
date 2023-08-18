@@ -1,29 +1,26 @@
 function drawCanvasGraph() {
     const canvas = document.querySelector('.my-canvas');
     const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
     const dailyTemperatures = document.querySelectorAll('.main__daily-forecast__graph__element__temperature');
-    let data = [
-        { x: 0, y: 0 },
-        { x: 1, y: 0 },
-        { x: 2, y: 0 },
-        { x: 3, y: 0 },
-        { x: 4, y: 0 },
-        { x: 5, y: 0 },
-        { x: 6, y: 0 },
-        { x: 7, y: 0 }
-    ];
-    let max = -99999;
-    let min = 99999;
+    // Tworzenie dynamicznej tablicy data na podstawie długości dailyTemperatures
+    let data = [];
     for (let i = 0; i < dailyTemperatures.length; i++) {
-        if (parseInt(dailyTemperatures[i].innerText) < min) {
-            min = parseInt(dailyTemperatures[i].innerText);
+        data.push({ x: i, y: 0 });
+    }
+    let max = -Infinity;
+    let min = Infinity;
+    for (let i = 0; i < dailyTemperatures.length; i++) {
+        const temperature = parseInt(dailyTemperatures[i].innerText);
+        if (temperature < min) {
+            min = temperature;
         }
-        if (parseInt(dailyTemperatures[i].innerText) > max) {
-            max = parseInt(dailyTemperatures[i].innerText);
+        if (temperature > max) {
+            max = temperature;
         }
     }
     let unit = 100/(max-min);
-    console.log(max, min);
+    // //console.log(max, min);
     for(let i = 0; i< dailyTemperatures.length; i++){
         if (parseInt(dailyTemperatures[i].innerText) == max ){
 
@@ -37,28 +34,37 @@ function drawCanvasGraph() {
         }
         
     }
-    console.log(data);
-
-    // console.log(data);
     const chartWidth = canvas.width - 40;
     const chartHeight = canvas.height - 40;
-
-    // Funkcja do przeliczania współrzędnych na płaszczyźnie canvas
     function convertToCanvasCoord(x, y) {
         let canvasX = (x / (data.length - 1)) * chartWidth + 20;
         let canvasY = chartHeight - (y / 100) * chartHeight + 20;
         return { x: canvasX, y: canvasY };
     }
-    // Rysowanie wykresu liniowego
     context.beginPath();
-    context.strokeStyle = "blue";
+    context.strokeStyle = "white";
     context.lineWidth = 2;
     const startPoint = convertToCanvasCoord(data[0].x, data[0].y);
     context.moveTo(startPoint.x, startPoint.y);
 
     for (let i = 1; i < data.length; i++) {
-        let point = convertToCanvasCoord(data[i].x, data[i].y);
-        context.lineTo(point.x, point.y);
+        const prevPoint = convertToCanvasCoord(data[i - 1].x, data[i - 1].y);
+        const currentPoint = convertToCanvasCoord(data[i].x, data[i].y);
+        const controlPoint1 = {
+            x: (prevPoint.x + currentPoint.x) / 2,
+            y: prevPoint.y
+        };
+        const controlPoint2 = {
+            x: (prevPoint.x + currentPoint.x) / 2,
+            y: currentPoint.y
+        };
+
+        context.bezierCurveTo(
+            controlPoint1.x, controlPoint1.y,
+            controlPoint2.x, controlPoint2.y,
+            currentPoint.x, currentPoint.y
+        );
     }
-    context.stroke();
+
+context.stroke();
 }

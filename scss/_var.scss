@@ -1,5 +1,6 @@
 $c_gray: rgba(196, 195, 193, 0.4);
 $c_gray-full: rgb(196,195,193,0.6);
+$c_gray-options: rgb(196,195,193);
 
 @mixin breakpoint($point) {
    @if $point == bigDesktop {

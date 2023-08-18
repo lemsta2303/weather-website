@@ -19,6 +19,35 @@
       <div class="bg-img-wrapper">
          <img src="/img/background-images/default.webp" alt="thunder background" height="2452" width="3924" class="bg-photo">
       </div> 
+      <div class="options-under-overlay options-window-nodisplay"></div>
+      <div class="options-window options-window-nodisplay">
+         <div class="options-window__wrapper">
+            <div class="options-window__wrapper__closing-button">
+               <img src="/img/cross.svg" alt="cross">
+            </div>
+            <div class="options-window__wrapper__title">
+               <h3>Options</h3>
+            </div>
+            <div class="options-window__wrapper__choosing">
+               <div class="options-window__wrapper__choosing__column">
+                  <h4>Temperature Unit</h4>
+                  <ul>
+                     <li class="choice-celsius">°C</li>
+                     <li class="choice-fahrenheit">°F</li>
+                     <li class="choice-kelvin">K</li>
+                  </ul>
+               </div>
+               <div class="options-window__wrapper__choosing__column"> 
+                  <h4>Wind speed unit</h4>
+                  <ul>
+                     <li class="choice-metres-per-second">m/s</li>
+                     <li class="choice-kilometres-per-hour">km/h</li>
+                     <li class="choice-miles-per-hour">M/h</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
       <header class="header">
          <section class="header__info">
             <div class="header__info__city">
@@ -158,7 +187,7 @@
                   </div>
                </div>
                <div class="main__daily-forecast__graph__element">
-                  <h6 class="main__daily-forecast__graph__element__temperature">26°C</h6>
+                  <h6 class="main__daily-forecast__graph__element__temperature">31°C</h6>
                   <div class="main__daily-forecast__graph__element__icon">
                      <div class="main__daily-forecast__graph__element__icon__img-wrapper">
                         <img src="/img/weather-icon-images/default.svg" height="17" width="17" alt="default" class="daily-forecast-element-icon">
@@ -224,5 +253,6 @@
    <script src="/js/mobile-menu.js" defer></script>
    <script src="/js/weather.js" defer></script>
    <script src="/js/canvas-graph.js" defer></script>
+   <script src="/js/options.js" defer></script>
 </body>
 </html>

@@ -206,6 +206,7 @@
             border-bottom: none;
          }
       }
+ 
 
       &__img-wrapper{
          height:5rem;
@@ -213,8 +214,14 @@
          padding:2rem;
          padding-left:2.5rem;
          padding-right:2.5rem;
+        
          @include breakpoint(tablet){
             padding-top:.5rem;
+         }
+         @include breakpoint(mobileonly){
+            height:3rem;
+            width:3rem;
+            padding:.5rem;
          }
          img{
             height:100%;
@@ -272,6 +279,11 @@
             align-self:flex-start;
             
          }
+         @include breakpoint(mobileonly){
+            &__name{
+               font-size:1em;
+            }
+         }
       }
       &__weather-description{
          font-size:3.6em;
@@ -280,24 +292,36 @@
             margin-bottom:2vh;
          }
          @include breakpoint(mobileonly){
-            font-size:2.4em;
+            font-size:2.2em;
          }
       }
       &__img-wrapper{
          display:none;
          @include breakpoint(tablet){
             display:initial;
+            width:8rem;
+            height:8rem;
+            img{
+               height:100%;
+               width:100%;
+            }
          }   
       }
       
       &__temperature{
          font-size:5em;
          margin-bottom:1vh;
+         @include breakpoint(mobileonly){
+            font-size:2.6em;
+         }
       }
       &__day{
          display:flex;
          align-items: center;
          font-size:1.8em;
+         @include breakpoint(mobileonly){
+            font-size:1.4em;
+         }
          &__lane{
             width:1px;
             height:15px;
@@ -323,6 +347,7 @@
       @include breakpoint(tablet){
          display:none;
       }
+      
    }
 }
 
@@ -536,6 +561,9 @@
             padding: 1rem 0;
             width:100%;
          }
+         @include breakpoint(mobileonly){
+            padding:0.5rem 0;
+         }
          &__days{
             width:100%;
             display:flex;
@@ -611,6 +639,9 @@
             margin-left:.5rem;
             margin-right:.5rem;
             border-radius:1rem;
+         }
+         @include breakpoint(mobileonly){
+            margin-top:0;
          }
 
          &__title{

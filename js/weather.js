@@ -96,40 +96,40 @@ function setBackgroundAndIcon(data, index){
     const weatherType = data.list[index].weather[0].main;
     
     if (weatherType === "Clear"){
-      backgroundImg.src = '/img/background-images/clear.webp';
+      backgroundImg.src = 'img/background-images/clear.webp';
       backgroundImg.alt = "clear;"
-      bigIconImgMobile.src = '/img/weather-icon-images/clear.svg';
+      bigIconImgMobile.src = 'img/weather-icon-images/clear.svg';
       bigIconImgMobile.alt = "clear";
-      bigIconImgDesktop.src  = '/img/weather-icon-images/clear.svg';
+      bigIconImgDesktop.src  = 'img/weather-icon-images/clear.svg';
       bigIconImgDesktop.alt = "clear";
-      weatherSmallIcon.src = '/img/weather-icon-images/clear.svg';
+      weatherSmallIcon.src = 'img/weather-icon-images/clear.svg';
       weatherSmallIcon.alt = "clear";
     } else if (weatherType === "Clouds" ){
-      backgroundImg.src = '/img/background-images/clouds.webp';
+      backgroundImg.src = 'img/background-images/clouds.webp';
       backgroundImg.alt = "clouds";
-      bigIconImgMobile.src = '/img/weather-icon-images/clouds.svg';
+      bigIconImgMobile.src = 'img/weather-icon-images/clouds.svg';
       bigIconImgMobile.alt = "clouds";
-      bigIconImgDesktop.src  = '/img/weather-icon-images/clouds.svg';
+      bigIconImgDesktop.src  = 'img/weather-icon-images/clouds.svg';
       bigIconImgDesktop.alt = "clouds";
-      weatherSmallIcon.src = '/img/weather-icon-images/clouds.svg';
+      weatherSmallIcon.src = 'img/weather-icon-images/clouds.svg';
       weatherSmallIcon.alt = "clouds";
     } else if (weatherType === "Rain" ){
-      backgroundImg.src = '/img/background-images/rain.webp';
+      backgroundImg.src = 'img/background-images/rain.webp';
       backgroundImg.alt = "rain";
-      bigIconImgMobile.src = '/img/weather-icon-images/rain.svg';
+      bigIconImgMobile.src = 'img/weather-icon-images/rain.svg';
       bigIconImgMobile.alt = "rain";
-      bigIconImgDesktop.src  = '/img/weather-icon-images/rain.svg';
+      bigIconImgDesktop.src  = 'img/weather-icon-images/rain.svg';
       bigIconImgDesktop.alt = "rain";
-      weatherSmallIcon.src = '/img/weather-icon-images/rain.svg';
+      weatherSmallIcon.src = 'img/weather-icon-images/rain.svg';
       weatherSmallIcon.alt = "rain";
     } else if (weatherType === "Snow" ) {
-      backgroundImg.src = '/img/background-images/snow.webp';
+      backgroundImg.src = 'img/background-images/snow.webp';
       backgroundImg.alt = "snow";
-      bigIconImgMobile.src = '/img/weather-icon-images/snow.svg';
+      bigIconImgMobile.src = 'img/weather-icon-images/snow.svg';
       bigIconImgMobile.alt = "snow";
-      bigIconImgDesktop.src  = '/img/weather-icon-images/snow.svg';
+      bigIconImgDesktop.src  = 'img/weather-icon-images/snow.svg';
       bigIconImgDesktop.alt = "snow";
-      weatherSmallIcon.src = '/img/weather-icon-images/snow.svg';
+      weatherSmallIcon.src = 'img/weather-icon-images/snow.svg';
       weatherSmallIcon.alt = "snow";
     }
     resolve();

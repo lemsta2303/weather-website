@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-// const concat = require('gulp-concat');
-// const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 gulp.task('sass', function () {
   return gulp
@@ -9,45 +9,16 @@ gulp.task('sass', function () {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./'));
 });
+
 gulp.task('watch', function () {
   gulp.watch('scss/**/*.scss', gulp.series('sass'));
 });
 
+gulp.task('build-scripts', function() {
+  return gulp.src(['js/mobile-menu.js', 'js/weather.js', 'js/canvas-graph.js', 'js/options.js', 'js/cities-choice.js', 'js/week-days-slider.js'])
+    .pipe(concat('scripts.min.js')) 
+    .pipe(uglify()) 
+    .pipe(gulp.dest('js')); 
+});
 
-// gulp.task('indexscripts', function() {
-//   return gulp.src(['js/hamburger-menu.js', 'js/explorer-adding-books.js', 'js/search-book.js', 'js/cart.js' ])
-//     .pipe(concat('index.min.js')) 
-//     .pipe(uglify()) 
-//     .pipe(gulp.dest('js')); 
-// });
-// gulp.task('default', gulp.series('sass', 'watch', 'indexscripts'));
-
-
-// gulp.task('shopscripts', function() {
-//   return gulp.src(['js/hamburger-menu.js', 'js/shop-adding-books.js', 'js/search-book.js', 'js/cart.js' ])
-//     .pipe(concat('shop.min.js')) 
-//     .pipe(uglify()) 
-//     .pipe(gulp.dest('js')); 
-// });
-// gulp.task('defaulttwo', gulp.series('sass', 'watch', 'shopscripts'));
-
-
-// gulp.task('bookscripts', function() {
-//   return gulp.src(['js/single-book-page.js', 'js/book-rating.js', 'js/cart.js' ])
-//     .pipe(concat('book.min.js')) 
-//     .pipe(uglify()) 
-//     .pipe(gulp.dest('js')); 
-// });
-// gulp.task('defaultthree', gulp.series('sass', 'watch', 'bookscripts'));
-
-
-// gulp.task('cartscripts', function() {
-//   return gulp.src(['js/cart.js' ])
-//     .pipe(concat('cart.min.js')) 
-//     .pipe(uglify()) 
-//     .pipe(gulp.dest('js')); 
-// });
-// gulp.task('defaultfour', gulp.series('sass', 'watch', 'cartscripts'));
-
-
-
+gulp.task('default', gulp.series('sass', 'build-scripts', 'watch'));

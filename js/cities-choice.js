@@ -26,7 +26,6 @@ if(citiesChoiceButton){
       if(citiesUnderOverlay){
          citiesUnderOverlay.classList.remove('options-window-nodisplay');
       }
-      
       if(citiesChoiceWindow){
          citiesChoiceWindow.classList.remove('options-window-nodisplay')
       }
@@ -43,3 +42,4 @@ function cityChoosing(element){
    localStorage.setItem('city', element.dataset.cityName);
    sendAndFetchApiRequest(element.dataset.cityName, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
 }
+

@@ -4,6 +4,7 @@ const apiUrl = (city_local, api_key) => 'https://api.openweathermap.org/data/2.5
 let temperatureUnit;
 let windSpeedUnit = 'km/h';
 const loadingOverlay = document.querySelector('.loading-overlay');
+let mainIndex = 0;
 
 function returnActualTemperatureUnit() {
   if(localStorage.getItem('temperature-unit')){
@@ -29,8 +30,7 @@ function returnActualCity() {
 function sendAndFetchApiRequest(cityName, index, tempUnit, windUnit){
   fetch(apiUrl(cityName,apiKey))
   .then(response => response.json())
-  .then(data => {
-    //console.log(data); 
+  .then(data => { 
     useApiData(data, index, tempUnit, windUnit);
   })
   .catch(error => {
@@ -59,7 +59,6 @@ function useApiData(data, index, temperatureUnit, windUnit){
 }
 
 function setMainInformation(data, index, temperatureUnit, windUnit){
-  
   return new Promise((resolve)=>{
     const headerInfoCityName = document.querySelector('.header__info__city__name');
     const headerInfoWeatherDescription = document.querySelector('.header__info__weather-description');
@@ -67,6 +66,8 @@ function setMainInformation(data, index, temperatureUnit, windUnit){
     const headerInfoWeekDay = document.querySelector('.header__info__day__week-day');
     const headerInfoDay = document.querySelector('.header__info__day__date');
     const headerInfoTime = document.querySelector('.header__info__day__time');
+    const sliderWeekDay = document.querySelector('.main__weekly-and-air__weekly__days__choosen-day__week-day-name');
+    const sliderTime = document.querySelector('.main__weekly-and-air__weekly__time__text');
     const airConditionRealFeel = document.querySelector('.real-feel-value');
     const airConditionWindSpeed = document.querySelector('.wind-speed-value');
     const airConditionHumidity = document.querySelector('.humidity-value');
@@ -76,6 +77,8 @@ function setMainInformation(data, index, temperatureUnit, windUnit){
     headerInfoWeekDay.innerText = getDayOfWeekWithTimezone(data.list[index].dt_txt, data.city.timezone);
     headerInfoDay.innerText = formatDateWithTimezone(data.list[index].dt_txt, data.city.timezone);
     headerInfoTime.innerText = extractTimeWithTimezone(data.list[index].dt_txt, data.city.timezone);
+    sliderWeekDay.innerText = getDayOfWeekWithTimezone(data.list[index].dt_txt, data.city.timezone).substring(0,3).toUpperCase();
+    sliderTime.innerText = extractTimeWithTimezone(data.list[index].dt_txt, data.city.timezone);
     airConditionRealFeel.innerText = returnTempreatureValueInChoosenUnit(data.list[index].main.feels_like, temperatureUnit);
     airConditionWindSpeed.innerText = returnWindSpeedInChoosenUnit(data.list[index].wind.speed,windUnit);
     airConditionHumidity.innerText = data.list[index].main.humidity + '%';
@@ -141,8 +144,8 @@ function setDailyForecast(data,index,temperatureUnit, windUnit){
     const dailyForecastWindSpeed = document.querySelectorAll('.main__daily-forecast__graph__element__icon__wind');
     const dailyForecastTime = document.querySelectorAll('.main__daily-forecast__graph__element__icon__time');
     for( let i = 0; i<dailyForecastElements.length; i++ ) {
-      dailyForecastTemperatures[i].innerText = returnTempreatureValueInChoosenUnit(data.list[i].main.temp, temperatureUnit);
-      let weatherType = data.list[i].weather[0].main;
+      dailyForecastTemperatures[i].innerText = returnTempreatureValueInChoosenUnit(data.list[i+index].main.temp, temperatureUnit);
+      let weatherType = data.list[i+index].weather[0].main;
       if (weatherType === "Clear"){
         dailyForecastIcons[i].src = '/img/weather-icon-images/clear.svg';
         dailyForecastIcons[i].alt = 'clear';
@@ -156,9 +159,8 @@ function setDailyForecast(data,index,temperatureUnit, windUnit){
         dailyForecastIcons[i].src = '/img/weather-icon-images/snow.svg';
         dailyForecastIcons[i].alt = 'snow';
       }
-      dailyForecastWindSpeed[i].innerText = returnWindSpeedInChoosenUnit(data.list[i].wind.speed,windUnit);
-      if(i===0) dailyForecastTime[i].innerText = "Now";
-      else dailyForecastTime[i].innerText = extractTimeWithTimezone(data.list[i].dt_txt, data.city.timezone);
+      dailyForecastWindSpeed[i].innerText = returnWindSpeedInChoosenUnit(data.list[i+index].wind.speed,windUnit);
+      dailyForecastTime[i].innerText = extractTimeWithTimezone(data.list[i+index].dt_txt, data.city.timezone);
     }
     resolve();
   });
@@ -264,5 +266,5 @@ function changeElementsPositionInDailyWeatherOnMobile() {
   }
 }
 
-window.addEventListener('resize', changeElementsPositionInDailyWeatherOnMobile); 
-sendAndFetchApiRequest(returnActualCity(), 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+window.addEventListener('resize', changeElementsPositionInDailyWeatherOnMobile); //obsluga zmiany wygladu wykresu
+sendAndFetchApiRequest(returnActualCity(), mainIndex, returnActualTemperatureUnit(), returnActualWindSpeedUnit()); //glowna funkcja

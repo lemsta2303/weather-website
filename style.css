@@ -460,6 +460,9 @@ table {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.header__info__day__date {
+  text-align: center;
+}
 .header__big-icon__img-wrapper {
   height: 20rem;
   width: 100%;
@@ -713,11 +716,14 @@ table {
 }
 .main__weekly-and-air__weekly__days__left-arrow, .main__weekly-and-air__weekly__days__right-arrow {
   font-size: 2.6em;
-  transition: all 0.2s ease;
 }
 .main__weekly-and-air__weekly__days__left-arrow:hover, .main__weekly-and-air__weekly__days__right-arrow:hover {
   cursor: pointer;
   opacity: 0.3;
+}
+.main__weekly-and-air__weekly__days .arrow-blocked {
+  opacity: 0;
+  cursor: initial;
 }
 .main__weekly-and-air__weekly__days__choosen-day {
   display: flex;
@@ -818,4 +824,21 @@ table {
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.4em;
+  color: white;
+  font-weight: 200;
+}
+@media (max-width: 960px) {
+  footer {
+    width: 100%;
+    left: 0;
+    right: initial;
+    text-align: center;
+  }
 }

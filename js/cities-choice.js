@@ -41,5 +41,8 @@ function cityChoosing(element){
    }
    localStorage.setItem('city', element.dataset.cityName);
    sendAndFetchApiRequest(element.dataset.cityName, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+   if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+   if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+   mainIndex = 0;
 }
 

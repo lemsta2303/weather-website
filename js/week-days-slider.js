@@ -15,7 +15,7 @@ if(sliderLeftArrow) {
 function rightArrowService() {
    if(mainIndex != 32) {
       mainIndex += 8;
-      console.log(mainIndex);
+      // console.log(mainIndex);
       sendAndFetchApiRequest(returnActualCity(), mainIndex, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
       if(sliderLeftArrow.classList.contains('arrow-blocked')){
          sliderLeftArrow.classList.remove('arrow-blocked');
@@ -29,7 +29,7 @@ function rightArrowService() {
 function leftArrowService() {
    if(mainIndex != 0){
       mainIndex -= 8;
-      console.log(mainIndex);
+      // console.log(mainIndex);
       sendAndFetchApiRequest(returnActualCity(), mainIndex, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
       if(sliderRightArrow.classList.contains('arrow-blocked')){
          sliderRightArrow.classList.remove('arrow-blocked');

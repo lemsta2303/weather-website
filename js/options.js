@@ -45,11 +45,15 @@ function openOptionsWindow() {
 }
 
 function setingTemperatureUnitInLocalStorage(){ 
+  
    if(optionsChoiceCelsius){
       optionsChoiceCelsius.addEventListener('click', () => {
          localStorage.setItem('temperature-unit', 'C');
          setActiveOnActualTemperatureButton();
          sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+         if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+         if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+         mainIndex = 0;
       })
    }
    if(optionsChoiceFahrenheit){
@@ -57,6 +61,9 @@ function setingTemperatureUnitInLocalStorage(){
          localStorage.setItem('temperature-unit', 'F');
          setActiveOnActualTemperatureButton();
          sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+         if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+         if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+         mainIndex = 0;
       })
    }
    if(optionsChoiceKelvin){
@@ -64,6 +71,9 @@ function setingTemperatureUnitInLocalStorage(){
          localStorage.setItem('temperature-unit', 'K');
          setActiveOnActualTemperatureButton();
          sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+         if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+         if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+         mainIndex = 0;
       })
    }
 }
@@ -128,6 +138,9 @@ function setingWindSpeedUnitInLocalStorage(){
          localStorage.setItem('wind-speed-unit', 'm/s');
          setActiveOnActualWindSpeedButton();
          sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+         if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+         if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+         mainIndex = 0;
       })
    }
    if(optionsChoiceKilometresPerHour){
@@ -135,6 +148,9 @@ function setingWindSpeedUnitInLocalStorage(){
          localStorage.setItem('wind-speed-unit', 'km/h');
          setActiveOnActualWindSpeedButton();
          sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+         if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+         if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+         mainIndex = 0;
       })
    }
    if(optionsChoiceMilesPerHour){
@@ -142,6 +158,9 @@ function setingWindSpeedUnitInLocalStorage(){
          localStorage.setItem('wind-speed-unit', 'M/h');
          setActiveOnActualWindSpeedButton();
          sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+         if(sliderLeftArrow) sliderLeftArrow.classList.add('arrow-blocked');
+         if(sliderRightArrow) sliderRightArrow.classList.remove('arrow-blocked');
+         mainIndex = 0;
       })
    }
 }

@@ -15,7 +15,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build-scripts', function() {
-  return gulp.src(['js/mobile-menu.js', 'js/weather.js', 'js/canvas-graph.js', 'js/options.js', 'js/cities-choice.js', 'js/week-days-slider.js'])
+  return gulp.src(['js/mobile-menu.js', 'js/weather.js', 'js/canvas-graph.js', 'js/week-days-slider.js', 'js/options.js', 'js/cities-choice.js'])
     .pipe(concat('scripts.min.js')) 
     .pipe(uglify()) 
     .pipe(gulp.dest('js')); 

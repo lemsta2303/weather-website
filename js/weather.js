@@ -147,16 +147,16 @@ function setDailyForecast(data,index,temperatureUnit, windUnit){
       dailyForecastTemperatures[i].innerText = returnTempreatureValueInChoosenUnit(data.list[i+index].main.temp, temperatureUnit);
       let weatherType = data.list[i+index].weather[0].main;
       if (weatherType === "Clear"){
-        dailyForecastIcons[i].src = '/img/weather-icon-images/clear.svg';
+        dailyForecastIcons[i].src = 'img/weather-icon-images/clear.svg';
         dailyForecastIcons[i].alt = 'clear';
       } else if (weatherType === "Clouds" ){
-        dailyForecastIcons[i].src = '/img/weather-icon-images/clouds.svg';
+        dailyForecastIcons[i].src = 'img/weather-icon-images/clouds.svg';
         dailyForecastIcons[i].alt = 'clouds';
       } else if (weatherType === "Rain" ){
-        dailyForecastIcons[i].src = '/img/weather-icon-images/rain.svg';
+        dailyForecastIcons[i].src = 'img/weather-icon-images/rain.svg';
         dailyForecastIcons[i].alt = 'rain';
       } else if (weatherType === "Snow" ) {
-        dailyForecastIcons[i].src = '/img/weather-icon-images/snow.svg';
+        dailyForecastIcons[i].src = 'img/weather-icon-images/snow.svg';
         dailyForecastIcons[i].alt = 'snow';
       }
       dailyForecastWindSpeed[i].innerText = returnWindSpeedInChoosenUnit(data.list[i+index].wind.speed,windUnit);

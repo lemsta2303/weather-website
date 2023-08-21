@@ -19,6 +19,13 @@ function returnActualWindSpeedUnit() {
   else return 'm/s';
 }
 
+function returnActualCity() {
+  if (localStorage.getItem('city')) {
+    return localStorage.getItem('city');
+  }
+  else return 'Warsaw';
+}
+
 function sendAndFetchApiRequest(cityName, index, tempUnit, windUnit){
   fetch(apiUrl(cityName,apiKey))
   .then(response => response.json())
@@ -82,7 +89,9 @@ function setBackgroundAndIcon(data, index){
     const backgroundImg = document.querySelector('.bg-photo');
     const bigIconImgMobile = document.querySelector('.big-icon-photo-mobile');
     const bigIconImgDesktop = document.querySelector('.big-icon-photo-desktop');
+    const weatherSmallIcon = document.querySelector('.weather-small-icon');
     const weatherType = data.list[index].weather[0].main;
+    
     if (weatherType === "Clear"){
       backgroundImg.src = '/img/background-images/clear.webp';
       backgroundImg.alt = "clear;"
@@ -90,6 +99,8 @@ function setBackgroundAndIcon(data, index){
       bigIconImgMobile.alt = "clear";
       bigIconImgDesktop.src  = '/img/weather-icon-images/clear.svg';
       bigIconImgDesktop.alt = "clear";
+      weatherSmallIcon.src = '/img/weather-icon-images/clear.svg';
+      weatherSmallIcon.alt = "clear";
     } else if (weatherType === "Clouds" ){
       backgroundImg.src = '/img/background-images/clouds.webp';
       backgroundImg.alt = "clouds";
@@ -97,6 +108,8 @@ function setBackgroundAndIcon(data, index){
       bigIconImgMobile.alt = "clouds";
       bigIconImgDesktop.src  = '/img/weather-icon-images/clouds.svg';
       bigIconImgDesktop.alt = "clouds";
+      weatherSmallIcon.src = '/img/weather-icon-images/clouds.svg';
+      weatherSmallIcon.alt = "clouds";
     } else if (weatherType === "Rain" ){
       backgroundImg.src = '/img/background-images/rain.webp';
       backgroundImg.alt = "rain";
@@ -104,6 +117,8 @@ function setBackgroundAndIcon(data, index){
       bigIconImgMobile.alt = "rain";
       bigIconImgDesktop.src  = '/img/weather-icon-images/rain.svg';
       bigIconImgDesktop.alt = "rain";
+      weatherSmallIcon.src = '/img/weather-icon-images/rain.svg';
+      weatherSmallIcon.alt = "rain";
     } else if (weatherType === "Snow" ) {
       backgroundImg.src = '/img/background-images/snow.webp';
       backgroundImg.alt = "snow";
@@ -111,6 +126,8 @@ function setBackgroundAndIcon(data, index){
       bigIconImgMobile.alt = "snow";
       bigIconImgDesktop.src  = '/img/weather-icon-images/snow.svg';
       bigIconImgDesktop.alt = "snow";
+      weatherSmallIcon.src = '/img/weather-icon-images/snow.svg';
+      weatherSmallIcon.alt = "snow";
     }
     resolve();
   });
@@ -200,7 +217,7 @@ function returnWindSpeedInChoosenUnit(value, unit){
  }
 
 function getDayOfWeekWithTimezone(dateStr, timezoneOffset) {
-  const daysOfWeek = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dateObject = new Date(dateStr);
   const polishTimeZoneRegulation = -7200;
 
@@ -211,7 +228,7 @@ function getDayOfWeekWithTimezone(dateStr, timezoneOffset) {
 }
 
 function formatDateWithTimezone(dateStr, timezoneOffset) {
-  const months = ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const dateObject = new Date(dateStr);
   const polishTimeZoneRegulation = -7200;
 
@@ -248,4 +265,4 @@ function changeElementsPositionInDailyWeatherOnMobile() {
 }
 
 window.addEventListener('resize', changeElementsPositionInDailyWeatherOnMobile); 
-sendAndFetchApiRequest(city, 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());
+sendAndFetchApiRequest(returnActualCity(), 0, returnActualTemperatureUnit(), returnActualWindSpeedUnit());

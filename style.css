@@ -360,6 +360,13 @@ table {
     padding-top: 0.5rem;
   }
 }
+@media (max-width: 420px) {
+  .cities-choice__element__img-wrapper {
+    height: 3rem;
+    width: 3rem;
+    padding: 0.5rem;
+  }
+}
 .cities-choice__element__img-wrapper img {
   height: 100%;
   width: 100%;
@@ -422,6 +429,11 @@ table {
     align-self: flex-start;
   }
 }
+@media (max-width: 420px) {
+  .header__info__city__name {
+    font-size: 1em;
+  }
+}
 .header__info__weather-description {
   font-size: 3.6em;
   margin-bottom: 12vh;
@@ -433,7 +445,7 @@ table {
 }
 @media (max-width: 420px) {
   .header__info__weather-description {
-    font-size: 2.4em;
+    font-size: 2.2em;
   }
 }
 .header__info__img-wrapper {
@@ -442,16 +454,32 @@ table {
 @media (max-width: 960px) {
   .header__info__img-wrapper {
     display: initial;
+    width: 8rem;
+    height: 8rem;
+  }
+  .header__info__img-wrapper img {
+    height: 100%;
+    width: 100%;
   }
 }
 .header__info__temperature {
   font-size: 5em;
   margin-bottom: 1vh;
 }
+@media (max-width: 420px) {
+  .header__info__temperature {
+    font-size: 2.6em;
+  }
+}
 .header__info__day {
   display: flex;
   align-items: center;
   font-size: 1.8em;
+}
+@media (max-width: 420px) {
+  .header__info__day {
+    font-size: 1.4em;
+  }
 }
 .header__info__day__lane {
   width: 1px;
@@ -706,6 +734,11 @@ table {
     width: 100%;
   }
 }
+@media (max-width: 420px) {
+  .main__weekly-and-air__weekly {
+    padding: 0.5rem 0;
+  }
+}
 .main__weekly-and-air__weekly__days {
   width: 100%;
   display: flex;
@@ -780,6 +813,11 @@ table {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 1rem;
+  }
+}
+@media (max-width: 420px) {
+  .main__weekly-and-air__air {
+    margin-top: 0;
   }
 }
 .main__weekly-and-air__air__title {

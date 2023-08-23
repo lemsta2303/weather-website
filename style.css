@@ -754,6 +754,11 @@ table {
   cursor: pointer;
   opacity: 0.3;
 }
+@media (max-width: 960px) {
+  .main__weekly-and-air__weekly__days__left-arrow:hover, .main__weekly-and-air__weekly__days__right-arrow:hover {
+    opacity: 1;
+  }
+}
 .main__weekly-and-air__weekly__days .arrow-blocked {
   opacity: 0;
   cursor: initial;

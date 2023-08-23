@@ -403,6 +403,7 @@
                   opacity:0.6;
                   cursor:pointer;
                }  
+              
             }
          }
          .options-header{
@@ -577,6 +578,9 @@
                &:hover{
                   cursor:pointer;
                   opacity:0.3;
+                  @include breakpoint(tablet){
+                     opacity:1;
+                  }
                }
             }
             .arrow-blocked{
